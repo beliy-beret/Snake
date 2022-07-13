@@ -1,10 +1,11 @@
 'use strict';
+import {Block} from './Block';
 
 const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+export const ctx = canvas.getContext('2d');
 const width = canvas.width;
 const height = canvas.height;
-const blockSize = 10;
+export const blockSize = 10;
 const widthInBlocks = width / blockSize;
 const heightInBlocks = height / blockSize;
 const directions = {
@@ -14,16 +15,6 @@ const directions = {
   40: 'down'
 };
 let score = 0;
-
-function circle(x, y, radius, fillCircle) {
-  ctx.beginPath();
-  ctx.arc(x, y, radius, 0, Math.PI * 2, false);
-  if (fillCircle) {
-    ctx.fill();
-  } else {
-    ctx.stroke();
-  }
-}
 
 function drawBorder() {
   ctx.fillStyle = 'Gray';
@@ -47,31 +38,6 @@ function gameOver() {
   ctx.textBaseline = 'middle';
   ctx.textAlign = 'center';
   ctx.fillText('Game over !', width / 2, height / 2);
-}
-
-class Block {
-  constructor(col, row) {
-    this.col = col;
-    this.row = row;
-  }
-
-  drawSquare(color) {
-    let x = this.col * blockSize;
-    let y = this.row * blockSize;
-    ctx.fillStyle = color;
-    ctx.fillRect(x, y, blockSize, blockSize);
-  }
-
-  drawCircle(color) {
-    let centerX = this.col * blockSize + blockSize / 2;
-    let centerY = this.row * blockSize + blockSize / 2;
-    ctx.fillStyle = color;
-    circle(centerX, centerY, blockSize / 2, true);
-  }
-
-  isEqual(otherBlock) {
-    return this.col === otherBlock.col && this.row === otherBlock.row;
-  }
 }
 
 class Apple {

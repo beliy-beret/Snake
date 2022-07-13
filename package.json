@@ -2,8 +2,6 @@
   "name": "snake",
   "version": "1.0.0",
   "description": "game",
-  "main": "src/script.js",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/beliy-beret/Snake.git"
@@ -19,7 +17,14 @@
     "url": "https://github.com/beliy-beret/Snake/issues"
   },
   "homepage": "https://github.com/beliy-beret/Snake#readme",
+  "source": "./src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
   "devDependencies": {
-    "eslint": "^8.19.0"
+    "eslint": "^8.19.0",
+    "parcel": "^2.6.2"
   }
 }
