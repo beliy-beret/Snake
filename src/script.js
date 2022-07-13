@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -8,10 +8,10 @@ const blockSize = 10;
 const widthInBlocks = width / blockSize;
 const heightInBlocks = height / blockSize;
 const directions = {
-  37: "left",
-  38: "up",
-  39: "right",
-  40: "down"
+  37: 'left',
+  38: 'up',
+  39: 'right',
+  40: 'down'
 };
 let score = 0;
 
@@ -75,7 +75,7 @@ class Block {
 }
 
 class Apple {
-  constructor(Block) {
+  constructor() {
     this.position = new Block(10, 10);
   }
 
@@ -91,7 +91,7 @@ class Apple {
 }
 
 class Snake {
-  constructor(Block) {
+  constructor() {
     this.segments = [
       new Block(7, 5),
       new Block(6, 5),
@@ -103,7 +103,7 @@ class Snake {
 
   draw() {
     for (const block of this.segments) {
-      block.drawSquare("Blue");
+      block.drawSquare('Blue');
     }
   }
 
@@ -112,13 +112,13 @@ class Snake {
     let newHead;
     this.direction = this.nextDirection;
 
-    if (this.direction === "right") {
+    if (this.direction === 'right') {
       newHead = new Block(head.col + 1, head.row);
-    } else if (this.direction === "down") {
+    } else if (this.direction === 'down') {
       newHead = new Block(head.col, head.row + 1);
-    } else if (this.direction === "left") {
+    } else if (this.direction === 'left') {
       newHead = new Block(head.col - 1, head.row);
-    } else if (this.direction === "up") {
+    } else if (this.direction === 'up') {
       newHead = new Block(head.col, head.row - 1);
     }
 
@@ -153,13 +153,13 @@ class Snake {
   }
 
   setDirection(newDirection) {
-    if (this.direction === "up" && newDirection === "down") {
+    if (this.direction === 'up' && newDirection === 'down') {
       return;
-    } else if (this.direction === "right" && newDirection === "left") {
+    } else if (this.direction === 'right' && newDirection === 'left') {
       return;
-    } else if (this.direction === "down" && newDirection === "up") {
+    } else if (this.direction === 'down' && newDirection === 'up') {
       return;
-    } else if (this.direction === "left" && newDirection === "right") {
+    } else if (this.direction === 'left' && newDirection === 'right') {
       return;
     }
     this.nextDirection = newDirection;
@@ -173,8 +173,8 @@ document.querySelector('body').addEventListener('keydown', (event) => {
   }
 });
 
-const snake = new Snake(Block);
-const apple = new Apple(Block);
+const snake = new Snake();
+const apple = new Apple();
 const intervalId = setInterval(() => {
   ctx.clearRect(0, 0, width, height);
   drawScore();

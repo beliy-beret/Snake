@@ -1,0 +1,25 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "game",
+  "main": "src/script.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beliy-beret/Snake.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "Game",
+    "Snake"
+  ],
+  "author": "S.U.Skorobogatov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beliy-beret/Snake/issues"
+  },
+  "homepage": "https://github.com/beliy-beret/Snake#readme",
+  "devDependencies": {
+    "eslint": "^8.19.0"
+  }
+}
