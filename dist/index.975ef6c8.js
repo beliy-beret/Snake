@@ -536,7 +536,10 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ctx", ()=>ctx);
 parcelHelpers.export(exports, "blockSize", ()=>blockSize);
+parcelHelpers.export(exports, "widthInBlocks", ()=>widthInBlocks);
+parcelHelpers.export(exports, "heightInBlocks", ()=>heightInBlocks);
 var _block = require("./Block");
+var _apple = require("./Apple");
 "use strict";
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
@@ -572,19 +575,6 @@ function gameOver() {
     ctx.textBaseline = "middle";
     ctx.textAlign = "center";
     ctx.fillText("Game over !", width / 2, height / 2);
-}
-class Apple {
-    constructor(){
-        this.position = new (0, _block.Block)(10, 10);
-    }
-    draw() {
-        this.position.drawCircle("LimeGreen");
-    }
-    move() {
-        const randomCol = Math.floor(Math.random() * (widthInBlocks - 2)) + 1;
-        const randomRow = Math.floor(Math.random() * (heightInBlocks - 2)) + 1;
-        this.position = new (0, _block.Block)(randomCol, randomRow);
-    }
 }
 class Snake {
     constructor(){
@@ -640,7 +630,7 @@ document.querySelector("body").addEventListener("keydown", (event)=>{
     if (newDirection) snake.setDirection(newDirection);
 });
 const snake = new Snake();
-const apple = new Apple();
+const apple = new (0, _apple.Apple)();
 const intervalId = setInterval(()=>{
     ctx.clearRect(0, 0, width, height);
     drawScore();
@@ -650,7 +640,7 @@ const intervalId = setInterval(()=>{
     drawBorder();
 }, 200);
 
-},{"./Block":"aTSUd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aTSUd":[function(require,module,exports) {
+},{"./Block":"aTSUd","./Apple":"cwQCo","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aTSUd":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Block", ()=>Block);
@@ -714,6 +704,27 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["ShInH","8lqZg"], "8lqZg", "parcelRequire46ba")
+},{}],"cwQCo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Apple", ()=>Apple);
+var _block = require("./Block");
+var _index = require("./index");
+"use strict";
+class Apple {
+    constructor(){
+        this.position = new (0, _block.Block)(10, 10);
+    }
+    draw() {
+        this.position.drawCircle("LimeGreen");
+    }
+    move() {
+        const randomCol = Math.floor(Math.random() * ((0, _index.widthInBlocks) - 2)) + 1;
+        const randomRow = Math.floor(Math.random() * ((0, _index.heightInBlocks) - 2)) + 1;
+        this.position = new (0, _block.Block)(randomCol, randomRow);
+    }
+}
+
+},{"./Block":"aTSUd","./index":"8lqZg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["ShInH","8lqZg"], "8lqZg", "parcelRequire46ba")
 
 //# sourceMappingURL=index.975ef6c8.js.map

@@ -11,8 +11,8 @@
 
 # production
 /build
-/dist/
-/.parcel-cache/
+/dist
+/.parcel-cache
 
 # misc
 .DS_Store

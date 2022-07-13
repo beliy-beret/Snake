@@ -1,13 +1,14 @@
 'use strict';
 import {Block} from './Block';
+import {Apple} from './Apple';
 
 const canvas = document.getElementById('canvas');
 export const ctx = canvas.getContext('2d');
 const width = canvas.width;
 const height = canvas.height;
 export const blockSize = 10;
-const widthInBlocks = width / blockSize;
-const heightInBlocks = height / blockSize;
+export const widthInBlocks = width / blockSize;
+export const heightInBlocks = height / blockSize;
 const directions = {
   37: 'left',
   38: 'up',
@@ -38,22 +39,6 @@ function gameOver() {
   ctx.textBaseline = 'middle';
   ctx.textAlign = 'center';
   ctx.fillText('Game over !', width / 2, height / 2);
-}
-
-class Apple {
-  constructor() {
-    this.position = new Block(10, 10);
-  }
-
-  draw() {
-    this.position.drawCircle('LimeGreen');
-  }
-
-  move() {
-    const randomCol = Math.floor(Math.random() * (widthInBlocks - 2)) + 1;
-    const randomRow = Math.floor(Math.random() * (heightInBlocks - 2)) + 1;
-    this.position = new Block(randomCol, randomRow);
-  }
 }
 
 class Snake {
