@@ -1,6 +1,6 @@
 'use strict';
 import {Block} from './Block';
-import {heightInBlocks, widthInBlocks} from './index';
+import {heightInBlocks, widthInBlocks} from '../index';
 
 export class Apple {
   constructor() {

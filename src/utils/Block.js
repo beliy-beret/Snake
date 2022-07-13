@@ -1,5 +1,5 @@
 'use strict';
-import {blockSize, ctx} from './index';
+import {blockSize, ctx} from '../index';
 
 function circle(x, y, radius, fillCircle) {
   ctx.beginPath();
